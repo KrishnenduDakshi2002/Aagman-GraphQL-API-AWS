@@ -1,0 +1,28 @@
+service: Aagman-lambda-GraphQL-Funtion
+provider:
+  name: aws
+  region: ap-south-1
+  runtime: nodejs16.x
+  httpApi:
+    cors: true
+functions:
+  graphql:
+    handler: src/server.graphqlHandler
+    events:
+      - httpApi:
+          path: /api
+          method: POST
+      - httpApi:
+          path: /api
+          method: GET
+      - httpApi:
+          path: /api
+          method: PUT
+      - httpApi:
+          path: /api
+          method: PATCh
+      - httpApi:
+          path: /api
+          method: DELETE
+plugins:
+  - serverless-plugin-typescript
